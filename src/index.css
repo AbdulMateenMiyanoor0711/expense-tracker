@@ -1,0 +1,275 @@
+.mainbody {
+    padding-right: 60px;
+    padding-left: 60px;
+    display: flex;
+    flex-direction: column;
+    /* gap: 35px; */
+    row-gap: 30px;
+
+}
+
+#Expensehead {
+    font-size: x-large;
+}
+
+#navbar {
+    height: 25px;
+    max-width: fit-content;
+    text-align: left;
+    font-size: x-large;
+}
+
+#cardbox {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.cards {
+    padding-top: 30px;
+    height: 100px;
+    width: 360px;
+    text-align: center;
+    background: #F2F3FF;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cardcategory {
+    color: #B5B5B5;
+
+}
+
+.Amount {
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1001;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+#deletemodal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    position: fixed;
+    z-index: 1001;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.zeromargin {
+    margin: 5px;
+}
+
+#budgetmodal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1001;
+    gap: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+#modalbutton {
+    background-color: #5C6AFF;
+    color: white;
+    text-align: center;
+    height: 40px;
+    width: 300px;
+    border-color: white;
+    border-radius: 10px;
+}
+
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.closebutton {
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    align-content: center;
+    border: #F2F3FF;
+}
+
+.cardhead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#deletebuttonsection {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.deletebutton {
+    background: #D70015;
+    font-size: medium;
+    color: white;
+    height: 40px;
+    width: 140px;
+    border-radius: 10px;
+    border: white;
+}
+
+.cancelbutton {
+    background: #E7E8FF;
+    border: 1px solid #5C6AFF;
+    font-size: medium;
+    color: black;
+    height: 40px;
+    width: 140px;
+    border-radius: 10px;
+
+}
+
+.expenseboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainmenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+/* .searchbutton {
+    background: #F5F5F5;
+    height: 30px;
+    width: 80px;
+    border-radius: 20px;
+    border-color: #B5B5B5;
+    text-align: center;
+    font-size: large;
+} */
+
+/* All Category Button */
+.categorybuttons {
+    background-color: #F5F5F5;
+    color: black;
+    text-align: center;
+    height: 40px;
+    width: 100px;
+    border-color: white;
+    border-radius: 20px;
+
+}
+
+.expandbudbutton {
+    background-color: #5C6AFF;
+    color: white;
+    text-align: center;
+    height: 40px;
+    width: 120px;
+    border-color: white;
+    border-radius: 10px;
+}
+
+/* input line of everey form */
+.input {
+    height: 40px;
+    width: 290px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+
+.editexpense {
+    background: #F2F3FF;
+    width: 100px;
+    height: 38px;
+    border-radius: 8px;
+    border: white;
+
+}
+
+.deleteexpense {
+    background: #FFE1E1;
+    width: 100px;
+    height: 38px;
+    border-radius: 8px;
+    border: white;
+}
+
+.expenseTable {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #111827;
+    border-radius: 10%;
+}
+
+.expenseTable th,
+.expenseTable td {
+    border: 1px solid black;
+    padding: 10px 15px;
+}
+
+#dashboardheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.dashboardbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.dasboarditems {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.gapbetween{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
