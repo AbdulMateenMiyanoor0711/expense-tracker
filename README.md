@@ -9,8 +9,9 @@ A modern and interactive expense tracker web application built with React, Vite,
 
 ## 📸 Preview
 
-<!-- Add your screenshot here -->
-<!-- <img width="1231" height="790" alt="Expense Tracker Screenshot" src="[YOUR_SCREENSHOT_URL]" /> -->
+<img width="1920" height="1200" alt="Screenshot 2025-12-11 192030" src="https://github.com/user-attachments/assets/df1583ea-9618-4592-bc73-0ce964f02e33" />
+
+<img width="1920" height="1200" alt="Screenshot 2025-12-11 192043" src="https://github.com/user-attachments/assets/c6034289-daa4-40dd-b827-f393cd74c2f3" />
 
 ## ✨ Features
 
