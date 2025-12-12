@@ -1,22 +1,23 @@
 import React from "react";
 
-const Totalbudnexp = () => {
+const Totalbudnexp = ({ budget, totalExpense }) => {
+  const remaining = budget - totalExpense;
   return (
     <>
       <div id="cardbox">
         <div className="cards">
           <div className="cardcategory">Total Budget</div>
-          <div className="Amount">₹20,000</div>
+          <div className="Amount">₹{budget}</div>
         </div>
 
         <div className="cards">
           <div className="cardcategory">Total Expense</div>
-          <div className="Amount">₹12,205</div>
+          <div className="Amount">₹{totalExpense}</div>
         </div>
 
         <div className="cards">
           <div className="cardcategory">Remaining Budget</div>
-          <div className="Amount">₹7,795</div>
+          <div className="Amount">₹{remaining}</div>
         </div>
       </div>
     </>

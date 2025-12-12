@@ -8,19 +8,13 @@ import {
   Wallet,
 } from "lucide-react";
 
-const Menubar = () => {
+const Menubar = ({ children }) => {
   return (
     <>
       <div className="mainmenu">
         <div className="search">
-          <span>
-            <LucideSearch className="item" />
-          </span>
-          <input
-            type="form"
-            placeholder="search"
-            className="searchbutton"
-          ></input>
+          <LucideSearch className="item" size={20} />
+          <input type="text" placeholder="Search" />
         </div>
         <button className="expandbudbutton">
           <Wallet size={15} />
@@ -41,8 +35,7 @@ const Menubar = () => {
           <HeartPlus size={15} />
           Health
         </button>
-        
-
+        <div className="button-container">{children}</div>
       </div>
     </>
   );
