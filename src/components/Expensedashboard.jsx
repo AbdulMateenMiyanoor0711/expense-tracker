@@ -1,14 +1,15 @@
-import { Footprints, Icon, icons } from "lucide-react";
+import { Icon } from "lucide-react";
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, Bar } from "recharts";
 
 const Expensedashboard = () => {
   const data = [
-    { name: "Food & Drinks", value: 400, fill: "#F68D2B", Icon},
+    { name: "Food & Drinks", value: 400, fill: "#F68D2B", Icon },
     { name: "Groceries", value: 300, fill: "#F4A79D" },
     { name: "Travel", value: 300, fill: "#344BFD" },
     { name: "Health", value: 200, fill: "#23A52C" },
   ];
+
   const bardata = [
     {
       name: "Page A",
@@ -77,8 +78,6 @@ const Expensedashboard = () => {
               innerRadius="60%"
               isAnimationActive={true}
             >
-            
-
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.fill} />
               ))}
@@ -86,10 +85,9 @@ const Expensedashboard = () => {
 
             <Tooltip />
             <Legend />
-           
           </PieChart>
         </div>
-        
+
         <BarChart
           style={{
             width: "300px",
@@ -100,7 +98,7 @@ const Expensedashboard = () => {
           responsive
           data={bardata}
         >
-          <Bar dataKey="pv" fill="#344BFD" />
+          <Bar dataKey="uv" fill="#5C6AFF" />
         </BarChart>
       </div>
     </div>

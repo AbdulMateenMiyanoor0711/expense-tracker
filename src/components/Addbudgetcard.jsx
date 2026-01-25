@@ -48,7 +48,7 @@ const Addbudgetcard = ({ onAdd }) => {
 
   return (
     <>
-      <button onClick={() => setaddbudget(true)} className="expandbudbutton">
+      <button onClick={() => setaddbudget(true)} className="expensebutton">
         <Plus size={15} /> Add Budget
       </button>
       {addbudget && (

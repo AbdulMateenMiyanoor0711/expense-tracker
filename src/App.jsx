@@ -7,6 +7,9 @@ import Deleteexpense from "./components/Deleteexpense";
 import Editexpensecard from "./components/Editexpensecard";
 import Addexpensecard from "./components/Addexpensecard";
 import Addbudgetcard from "./components/Addbudgetcard";
+import { v4 as uuidv4 } from "uuid";
+import Colorchange from "./components/Colorchange";
+
 function App() {
   const [budget, setbudget] = useState(() => {
     const saved = localStorage.getItem("budget");
@@ -19,11 +22,25 @@ function App() {
     setbudget(budget + amount);
   };
 
-  const [Expenselist, setExpenselist] = useState([
-    { Sr: 1, Name: "Pizza", Category: "Food", Amount: 1000 },
-    { Sr: 2, Name: "Taxi", Category: "Travel", Amount: 30 },
-  ]);
+  const [Expenselist, setExpenselist] = useState(() => {
+    const saved = localStorage.getItem("expense");
+    return saved ? JSON.parse(saved) : [];
+  });
   const totalexpenses = Expenselist.reduce((sum, exp) => sum + exp.Amount, 0);
+  useEffect(() => {
+    localStorage.setItem("expense", JSON.stringify(Expenselist));
+  }, [Expenselist]);
+  const addExpense = (expensedata) => {
+    const NewExpense = {
+      id: uuidv4(),
+      ...expensedata,
+    };
+    setExpenselist([...Expenselist, NewExpense]);
+  };
+  const deleteExpense = (id) => {
+    setExpenselist(Expenselist.filter((exp) => exp.id !== id));
+  };
+
   return (
     <>
       <div className="mainbody">
@@ -36,8 +53,12 @@ function App() {
         </div>
         <Totalbudnexp budget={budget} totalExpense={totalexpenses} />
         <Menubar>
-          <Addexpensecard />
           <Addbudgetcard onAdd={addBudget} />
+          <Addexpensecard
+            onAdd={addExpense}
+            budget={budget}
+            totalExpense={totalexpenses}
+          />
         </Menubar>
         <Expensedashboard />
 
@@ -52,19 +73,20 @@ function App() {
           </thead>
           <tbody>
             {Expenselist.map((item, index) => (
-              <tr key={index}>
+              <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>Expense on {item.Name}</td>
                 <td>{item.Amount}</td>
                 <td className="gapbetween">
                   <Editexpensecard />
-                  <Deleteexpense />
+                  <Deleteexpense onDelete={() => deleteExpense(item.id)} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+     
     </>
   );
 }

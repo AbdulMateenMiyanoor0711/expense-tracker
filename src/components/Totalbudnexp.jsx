@@ -2,6 +2,7 @@ import React from "react";
 
 const Totalbudnexp = ({ budget, totalExpense }) => {
   const remaining = budget - totalExpense;
+
   return (
     <>
       <div id="cardbox">
