@@ -1,14 +1,40 @@
 import { Plus, X } from "lucide-react";
 import { useState } from "react";
 
-const Addbudgetmodal = ({ onClose, onAdd }) => {
+const Addbudgetmodal = ({ onClose, fetchproject }) => {
   const [amount, setamount] = useState("");
+
+  const addbudget = async () => {
+    try {
+      let body = {
+        amount: Number(amount),
+        user_id: 1,
+      };
+      const response = await fetch("http://localhost:8050/add-budget", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      setamount("");
+      fetchproject();
+
+      onClose();
+      location.reload();
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    if (amount && amount > 0) {
-      onAdd(Number(amount));
-      onClose();
+    if (amount && Number(amount) > 0) {
+      addbudget();
     }
   };
 
@@ -43,7 +69,7 @@ const Addbudgetmodal = ({ onClose, onAdd }) => {
   );
 };
 
-const Addbudgetcard = ({ onAdd }) => {
+const Addbudgetcard = ({ fetchproject }) => {
   const [addbudget, setaddbudget] = useState(false);
 
   return (
@@ -52,7 +78,10 @@ const Addbudgetcard = ({ onAdd }) => {
         <Plus size={15} /> Add Budget
       </button>
       {addbudget && (
-        <Addbudgetmodal onClose={() => setaddbudget(false)} onAdd={onAdd} />
+        <Addbudgetmodal
+          onClose={() => setaddbudget(false)}
+          fetchproject={fetchproject}
+        />
       )}
     </>
   );

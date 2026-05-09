@@ -1,12 +1,37 @@
 import React, { useState } from "react";
 import { Plus, X } from "lucide-react";
+import { useEffect } from "react";
 const Expensemodal = ({ onClose, onAdd, budget, totalExpense }) => {
+  const addexpense = async () => {
+    try {
+      let body = {
+        user_id: 1,
+        expense_name: formData.Name,
+        expense_date: formData.Date,
+        expense_category: formData.Category,
+        expense_amount: Number(formData.Amount),
+      };
+      let url = "http://localhost:8050/add-expense";
+      let res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      let data = await res.json();
+      console.log("data", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const [formData, setFormData] = useState({
     Name: "",
     Date: "",
-    Category: "Food & Drinks",
+    Category: "",
     Amount: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -14,21 +39,15 @@ const Expensemodal = ({ onClose, onAdd, budget, totalExpense }) => {
       [name]: value,
     }));
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const remaining = budget - totalExpense;
-    const expenseData = {
-      Name: formData.Name,
-      Date: formData.Date,
-      Category: formData.Category,
-      Amount: Number(formData.Amount),
-    };
-    if (expenseData.Amount > remaining) {
+    if (Number(formData.Amount) > remaining) {
       alert("insufficient budget");
       return;
     }
-    onAdd(expenseData);
-
+    await addexpense();
+    onAdd(formData);
     onClose();
   };
 
